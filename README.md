@@ -3,9 +3,9 @@ Bacterial Growth Simulation
 Summary:
 The Bacterial Growth Simulation is a web-based interactive application built using React and TypeScript. It simulates the growth of bacterial colonies in a confined grid (representing a petri dish) based on biological rules. Users can control the simulation by starting, pausing, resetting, and customizing parameters such as:
 
-The time interval for bacterial division.
-The probability of division failure.
-The lifespan of bacteria.
+- The time interval for bacterial division.
+- The probability of division failure.
+- The lifespan of bacteria.
 
 Main Features
 Interactive 200x200 grid representing a petri dish.
