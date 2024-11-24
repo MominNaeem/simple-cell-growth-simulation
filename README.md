@@ -24,18 +24,12 @@ User Controls:
 Project Structure
 The project is organized into a modular structure for maintainability and clarity:
 
-src/
-|-- components/
-|   |-- Grid.tsx          # Handles grid rendering, cell interactions, and simulation updates.
-|   |-- Controls.tsx      # Provides user controls to manage the simulation.
-|
-|-- utils/
-|   |-- simulationLogic.ts # Contains the core logic for bacterial growth simulation.
-|   |-- constants.ts       # Stores shared constants like grid size.
-|
-|-- App.tsx               # Root component integrating controls and grid.
-|-- index.tsx             # Entry point rendering the App component.
-|-- styles.css            # Custom styles for the grid and UI.
+The project is structured to ensure modularity, clarity, and ease of maintainability. The components folder contains reusable React components such as Grid.tsx and Controls.tsx. The Grid.tsx component manages the grid rendering, bacterial growth simulation, and interactions like clicking on cells to add or remove bacteria. The Controls.tsx component provides user controls for starting, pausing, and resetting the simulation, as well as input fields for adjusting settings such as the division interval, failure probability, and lifespan of bacteria.
+
+The utils folder holds helper files, including simulationLogic.ts, which contains the core logic for bacterial growth, such as handling division rules, lifespan, and failure probability. It also includes constants.ts, which stores shared constants like the grid size.
+
+The App.tsx file serves as the root component, integrating the Grid and Controls components into a cohesive interface. The index.tsx file acts as the entry point, rendering the App component into the DOM. Lastly, styles.css contains custom styles for the grid layout, UI controls, and overall application appearance, ensuring the interface is both functional and visually appealing.
+
 
 Key Components:
 
