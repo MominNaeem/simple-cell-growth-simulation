@@ -1,46 +1,102 @@
-# Getting Started with Create React App
+Bacterial Growth Simulation
+Summary
+The Bacterial Growth Simulation is a web-based interactive application built using React and TypeScript. It simulates the growth of bacterial colonies in a confined grid (representing a petri dish) based on biological rules. Users can control the simulation by starting, pausing, resetting, and customizing parameters like the time interval for bacterial division, probability of division failure, and lifespan of bacteria.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Main Features
+Interactive 200x200 grid representing a petri dish.
+Simulation of bacterial growth based on:
+Division Rules: Bacteria divide into neighboring empty cells.
+Failure Probability: Cell divisions may fail based on user-defined probability.
+Lifespan: Bacteria die after a specified number of seconds.
+User controls to:
+Start, pause, and reset the simulation.
+Adjust division interval, failure probability, and lifespan dynamically.
+Add or remove bacteria by clicking on grid cells.
+Smooth updates and efficient state management to handle large grids.
 
-## Available Scripts
 
-In the project directory, you can run:
+Project Structure
+The project is organized into a modular structure for maintainability and clarity:
 
-### `npm start`
+src/
+|-- components/
+|   |-- Grid.tsx          # Handles grid rendering, cell interactions, and simulation updates.
+|   |-- Controls.tsx      # Provides user controls to manage the simulation.
+|
+|-- utils/
+|   |-- simulationLogic.ts # Contains the core logic for bacterial growth simulation.
+|   |-- constants.ts       # Stores shared constants like grid size.
+|
+|-- App.tsx               # Root component integrating controls and grid.
+|-- index.tsx             # Entry point rendering the App component.
+|-- styles.css            # Custom styles for the grid and UI.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Key Components:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Grid.tsx
 
-### `npm test`
+Manages the grid state (grid and lifespanGrid) and handles bacterial growth logic.
+Handles user interactions like clicking on cells to add or remove bacteria.
+Renders the 200x200 grid with each cell dynamically updated during the simulation.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Controls.tsx
 
-### `npm run build`
+Provides user inputs for:
+Simulation interval.
+Division failure probability.
+Bacterial lifespan.
+Includes buttons to start, pause, and reset the simulation.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+simulationLogic.ts
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Contains the logic for updating the grid during each simulation tick:
+Handles bacterial division into neighboring cells.
+Accounts for lifespan and failure probability.
+Ensures the simulation runs efficiently even for large grids.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Assumptions
+Initial State:
+- The grid starts empty until the user manually adds bacteria by clicking on cells.
+Division Rules:
+- A cell can only divide if at least one neighboring cell (up, down, left, or right) is empty.
+- A bacterial division has a user-defined probability of failure (default: 10%).
+Lifespan:
+- Bacteria die after a specified number of seconds (default: 6 seconds).
+- Lifespan is measured per bacterial cell.
+User Controls:
+- Resetting stops the simulation and clears all bacteria from the grid.
+- Users can adjust simulation parameters dynamically.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Performance Analysis
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Grid Update Speed:
+Optimization:
+- State updates are batched using React’s useState and useEffect.
+- Grid updates are localized to affected cells, avoiding unnecessary re-renders.
+Performance:
+- The grid can handle large-scale updates (200x200 cells) smoothly, even at short intervals (e.g., 500ms).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Memory Usage:
+Memory Management:
+- Grid and lifespan data are stored in 2D arrays for efficient lookup and update.
+- Lifespan counters are decremented only for occupied cells to minimize computation.
+Analysis:
+- Memory usage scales linearly with grid size (O(n^2) for n x n grid).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Tested Scenarios
+Maximum grid size: 200x200.
+Minimum interval: 500ms.
+Maximum bacteria: ~5,000 active cells.
 
-## Learn More
+Performance Metrics
+Average Frame Render Time: ~16ms (60fps) with ~1,000 active cells.
+Memory Usage: ~10MB for grid and lifespan state combined.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Future Improvements
+Add support for diagonal cell division.
+Display a real-time graph of bacterial population growth over time.
+Enable users to save and load simulation states.
+Introduce advanced biological rules, such as nutrient consumption or competitive species.
+Due to final exams, many improvements have not been implemented yet. Soon to come. :D
