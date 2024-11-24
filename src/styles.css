@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+.grid {
+    display: inline-block;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    width: 5px;
+    height: 5px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.cell.occupied {
+    background-color: green;
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+.controls div {
+    margin: 10px 0;
+}
