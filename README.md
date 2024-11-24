@@ -8,16 +8,17 @@ The Bacterial Growth Simulation is a web-based interactive application built usi
 - The lifespan of bacteria.
 
 Main Features
-Interactive 200x200 grid representing a petri dish.
-Simulation of bacterial growth based on:
-Division Rules: Bacteria divide into neighboring empty cells.
-Failure Probability: Cell divisions may fail based on user-defined probabilities.
-Lifespan: Bacteria die after a specified number of seconds.
+- Interactive 200x200 grid representing a petri dish.
+- Simulation of bacterial growth based on:
+- Division Rules: Bacteria divide into neighboring empty cells.
+- Failure Probability: Cell divisions may fail based on user-defined probabilities.
+- Lifespan: Bacteria die after a specified number of seconds.
+
 User Controls:
-Start, pause, and reset the simulation.
-Adjust division interval, failure probability, and lifespan dynamically.
-Add or remove bacteria by clicking on grid cells.
-Smooth updates and efficient state management to handle large grids.
+- Start, pause, and reset the simulation.
+- Adjust division interval, failure probability, and lifespan dynamically.
+- Add or remove bacteria by clicking on grid cells.
+- Smooth updates and efficient state management to handle large grids.
 
 
 Project Structure
