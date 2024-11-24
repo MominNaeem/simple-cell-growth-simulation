@@ -1,5 +1,8 @@
 Bacterial Growth Simulation
 
+Link:
+https://simple-cell-growth-simulation.vercel.app/
+
 Summary:
 The Bacterial Growth Simulation is a web-based interactive application built using React and TypeScript. It simulates the growth of bacterial colonies in a confined grid (representing a petri dish) based on biological rules. Users can control the simulation by starting, pausing, resetting, and customizing parameters such as:
 
